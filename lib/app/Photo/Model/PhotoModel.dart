@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:mvvm_provider/core/model/base_model.dart';
+import 'package:mvvm_provider/core/base/base_model.dart';
 
 part 'PhotoModel.g.dart';
 
