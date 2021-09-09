@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:mvvm_provider/app/Photo/ViewModel/PhotoViewModel.dart';
 
 class PhotoView extends PhotoViewModel {
+  String deneme = "deneme";
   @override
   Widget build(BuildContext context) {
     final photoService = Provider.of<PhotoService>(context);
@@ -15,15 +16,15 @@ class PhotoView extends PhotoViewModel {
         },
       ),
       body: ListView.builder(
-        itemCount: model2.length,
+        itemCount: photoService.model1.length,
         itemBuilder: (context, index) {
           return ListTile(
             leading: CircleAvatar(
-              backgroundImage:
-                  NetworkImage(photoService.model1[index].url ?? ''),
+              backgroundImage: NetworkImage(
+                  "${photoService.model1[index].downloadUrl ?? deneme}"),
             ),
             title: Text(
-              photoService.model1[index].id ?? "sas",
+              "${photoService.model1[index].author ?? deneme}",
               style: TextStyle(color: Colors.black),
             ),
           );

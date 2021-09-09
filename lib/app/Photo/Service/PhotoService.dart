@@ -5,8 +5,8 @@ import 'package:mvvm_provider/app/Photo/Model/PhotoModel.dart';
 import 'package:mvvm_provider/core/base/base_view_model.dart';
 import 'package:mvvm_provider/core/network/NetworkService.dart';
 
-class PhotoService extends ChangeNotifier {
-  
+class PhotoService extends BaseViewModel {
+
   final Dio dio = NetworkService.instance.dio;
 
   List<PhotoModel> _models = [];
