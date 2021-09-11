@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:flutter/widgets.dart';
-import 'package:mvvm_provider/app/Photo/Model/PhotoModel.dart';
+
+import 'package:mvvm_provider/app/picsum.com/Model/PhotoModel.dart';
 import 'package:mvvm_provider/core/base/base_view_model.dart';
 import 'package:mvvm_provider/core/network/NetworkService.dart';
 
@@ -14,7 +14,7 @@ class PhotoService extends BaseViewModel {
   List<PhotoModel> get model1 => _models;
 
   Future getAllData() async {
-    final response = await dio.get(ServicePath.EPISODE.rawValue);
+    final response = await dio.get(ServicePath.LIST.rawValue);
 
     if (response.statusCode == HttpStatus.ok) {
       final data = response.data;
@@ -30,17 +30,16 @@ class PhotoService extends BaseViewModel {
         print(_models.length);
       }
     }
-
     notifyListeners();
   }
 }
 
-enum ServicePath { EPISODE }
+enum ServicePath { LIST }
 
 extension ServicePathExtension on ServicePath {
   String get rawValue {
     switch (this) {
-      case ServicePath.EPISODE:
+      case ServicePath.LIST:
         return '/v2/list';
     }
   }

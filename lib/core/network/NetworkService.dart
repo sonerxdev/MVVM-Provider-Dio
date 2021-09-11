@@ -1,20 +1,18 @@
 import 'package:dio/dio.dart';
 
-
 class NetworkService {
-
   static NetworkService? _instace;
   static NetworkService get instance {
     if (_instace != null) return _instace!;
     _instace = NetworkService._init();
     return _instace!;
   }
-  
 
-  final String _baseUrl = 'https://picsum.photos/';
+  final String _baseUrl1 = 'https://picsum.photos/';
+  final String _baseUrl2 = 'https://api.unsplash.com/';
   late final Dio dio;
 
   NetworkService._init() {
-    dio = Dio(BaseOptions(baseUrl: _baseUrl));
+    dio = Dio(BaseOptions(baseUrl: _baseUrl2));
   }
 }

@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:mvvm_provider/app/Photo/Model/Photo.dart';
-import 'package:mvvm_provider/app/Photo/Service/PhotoService.dart';
+import 'package:mvvm_provider/app/picsum.com/Photo.dart';
+import 'package:mvvm_provider/app/picsum.com/Service/PhotoService.dart';
+import 'package:mvvm_provider/app/unsplash.com/Service/UnsplashService.dart';
+import 'package:mvvm_provider/app/unsplash.com/Unsplash.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(
       MultiProvider(
         providers: [
-          ChangeNotifierProvider(create: (_) => PhotoService(),),
-          
+          ChangeNotifierProvider(
+            create: (_) => PhotoService(),
+          ),
+          ChangeNotifierProvider(
+            create: (_) => UnsplashService(),
+          ),
         ],
         child: MyApp(),
       ),
@@ -22,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Photo(),
+      home: Unsplash(),
     );
   }
 }
