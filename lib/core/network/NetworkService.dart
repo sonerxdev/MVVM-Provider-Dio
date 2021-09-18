@@ -10,9 +10,10 @@ class NetworkService {
 
   final String _baseUrl1 = 'https://picsum.photos/';
   final String _baseUrl2 = 'https://api.unsplash.com/';
+  final String _baseUrl3 = "https://reqres.in";
   late final Dio dio;
 
   NetworkService._init() {
-    dio = Dio(BaseOptions(baseUrl: _baseUrl2));
+    dio = Dio(BaseOptions(baseUrl: _baseUrl3));
   }
 }

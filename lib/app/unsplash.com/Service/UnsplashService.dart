@@ -36,7 +36,18 @@ class UnsplashService extends BaseViewModel {
     }
     notifyListeners();
   }
+
+
+
+  Future postFunction() async {
+    final response = await dio.post(ServicePath.PATH.rawValue +
+        APIKEY.API_KEY.rawValue +
+        CategoryPath.CATEGORY.rawValue);
+
+  }
 }
+
+
 
 enum ServicePath { PATH }
 

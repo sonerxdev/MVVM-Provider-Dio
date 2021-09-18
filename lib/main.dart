@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_provider/app/picsum.com/Photo.dart';
 import 'package:mvvm_provider/app/picsum.com/Service/PhotoService.dart';
+import 'package:mvvm_provider/app/reqres.in/Model/reqresin.dart';
+import 'package:mvvm_provider/app/reqres.in/Service/reqresinService.dart';
+import 'package:mvvm_provider/app/reqres.in/ViewModel/reqresinViewModel.dart';
 import 'package:mvvm_provider/app/unsplash.com/Service/UnsplashService.dart';
 import 'package:mvvm_provider/app/unsplash.com/Unsplash.dart';
 import 'package:provider/provider.dart';
+
 
 void main() => runApp(
       MultiProvider(
@@ -13,6 +17,9 @@ void main() => runApp(
           ),
           ChangeNotifierProvider(
             create: (_) => UnsplashService(),
+          ),
+            ChangeNotifierProvider(
+            create: (_) => ReqresinService(),
           ),
         ],
         child: MyApp(),
@@ -28,7 +35,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Unsplash(),
+      home: Reqresin(),
     );
   }
 }
