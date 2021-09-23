@@ -24,42 +24,34 @@ class UnsplashView extends UnsplashViewModel {
         itemBuilder: (context, index) {
           return unsplashService.model1.isEmpty
               ? CircularProgressIndicator()
-              : GestureDetector(
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => DetailPage(
-                      results: unsplashService.model1[index].results
-                    )),
+              : Stack(
+                alignment: AlignmentDirectional.center,
+                children: [
+                  ShaderMask(
+                    blendMode: BlendMode.darken,
+                    shaderCallback: (Rect bounds) {
+                      return LinearGradient(
+                              colors: [Colors.black45, Colors.black45],
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter)
+                          .createShader(bounds);
+                    },
+                    child: Image.network(
+                        "${unsplashService.model1[index].results?[index].urls?.small ?? deneme}"),
                   ),
-                  child: Stack(
-                    alignment: AlignmentDirectional.center,
-                    children: [
-                      ShaderMask(
-                        blendMode: BlendMode.darken,
-                        shaderCallback: (Rect bounds) {
-                          return LinearGradient(
-                                  colors: [Colors.black45, Colors.black45],
-                                  begin: Alignment.bottomCenter,
-                                  end: Alignment.topCenter)
-                              .createShader(bounds);
-                        },
-                        child: Image.network(
-                            "${unsplashService.model1[index].results?[index].urls?.regular ?? deneme}"),
-                      ),
-                      Center(
-                        child: Text(
-                          unsplashService
-                                  .model1[index].results?[index].description ??
-                              deneme,
-                          style: TextStyle(
-                              fontSize: 30.0,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w400),
-                        ),
-                      ),
-                    ],
+                  Center(
+                    child: Text(
+                      unsplashService
+                              .model1[index].results?[index].description ??
+                          deneme,
+                      style: TextStyle(
+                          fontSize: 30.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400),
+                    ),
                   ),
-                );
+                ],
+              );
         },
       ),
     ));

@@ -39,12 +39,7 @@ class UnsplashService extends BaseViewModel {
 
 
 
-  Future postFunction() async {
-    final response = await dio.post(ServicePath.PATH.rawValue +
-        APIKEY.API_KEY.rawValue +
-        CategoryPath.CATEGORY.rawValue);
-
-  }
+ 
 }
 
 

@@ -14,6 +14,6 @@ class NetworkService {
   late final Dio dio;
 
   NetworkService._init() {
-    dio = Dio(BaseOptions(baseUrl: _baseUrl3));
+    dio = Dio(BaseOptions(baseUrl: _baseUrl2));
   }
 }
