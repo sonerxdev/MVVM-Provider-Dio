@@ -37,7 +37,7 @@ class UnsplashView extends UnsplashViewModel {
                           .createShader(bounds);
                     },
                     child: Image.network(
-                        "${unsplashService.model1[index].results?[index].urls?.small ?? deneme}"),
+                        "${unsplashService.model1[index].results?[index].urls?.regular ?? deneme}"),
                   ),
                   Center(
                     child: Text(
